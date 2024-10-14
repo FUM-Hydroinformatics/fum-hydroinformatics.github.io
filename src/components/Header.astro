@@ -1,6 +1,6 @@
 ---
 import HeaderLink from '@/components/HeaderLink'
-import TwitterIcon from '@/components/icons/TwitterIcon'
+import TelegramIcon from '@/components/icons/TelegramIcon'
 import GithubIcon from '@/components/icons/GithubIcon'
 import MenuIcon from './icons/MenuIcon.astro'
 import Search from '@/components/Search'
@@ -11,20 +11,20 @@ import ToggleTheme from './ToggleTheme.astro'
 const SOCIALNETWORKS = [
 	{
 		name: 'Github',
-		url: 'https://github.com/danielcgilibert/blog-template',
+		url: 'https://github.com/FUM-Hydroinformatics',
 		icon: GithubIcon
 	},
 
 	{
-		name: 'Twitter',
-		url: 'https://github.com/danielcgilibert/blog-template',
-		icon: TwitterIcon
+		name: 'Telegram',
+		url: 'https://t.me/fum_hydroinformatics',
+		icon: TelegramIcon
 	}
 ]
 ---
 
 <header class='relative flex items-center h-12 font-semibold'>
-	<a class='text-lg mr-auto' href='/'>Home</a>
+	<a class='text-lg ml-auto' href='/'>صفحه اصلی</a>
 
 	<div
 		id='astro-header-drawer'
@@ -34,10 +34,10 @@ const SOCIALNETWORKS = [
 			class='flex h-full flex-col justify-between gap-12 text-left md:flex-row md:w-full md:gap-5'
 		>
 			<div
-				class='flex flex-col gap-4 md:flex-row md:border-r-2 border-black pr-4 dark:border-white'
+				class='flex flex-col gap-4 md:flex-row md:border-l-2 border-black pl-4 dark:border-white'
 			>
 				<HeaderLink href='/tags' class='flex items-center gap-1 text-2xl md:text-base'>
-					<TagIcon /> Tags
+					<TagIcon /> برچسب ها
 				</HeaderLink>
 			</div>
 
@@ -53,14 +53,14 @@ const SOCIALNETWORKS = [
 		</nav>
 	</div>
 
-	<div class='flex items-center gap-3 md:pl-3' transition:persist='navbar'>
+	<div class='flex items-center gap-3 md:pr-3' transition:persist='navbar'>
 		<div>
 			<Search />
 		</div>
 		<ToggleTheme />
 		<button id='astro-header-drawer-button' type='button' class='md:ml-6 md:hidden'>
 			<MenuIcon />
-			<span class='sr-only'>Show Menu</span>
+			<span class='sr-only'>نمایش فهرست</span>
 		</button>
 	</div>
 </header>

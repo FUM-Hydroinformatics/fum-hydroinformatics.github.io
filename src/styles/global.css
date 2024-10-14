@@ -18,14 +18,27 @@
 	h4,
 	h5,
 	h6 {
-		@apply text-zinc-800 dark:text-zinc-100   !important;
+		@apply text-zinc-800 dark:text-zinc-100 !important;
+	}
+
+	body {
+		font-family: 'Vazirmatn-RD', 'tahoma';
 	}
 
 	html.dark .shiki,
 	html.dark .shiki span {
-	  color: var(--shiki-dark) !important;
-	  background-color: theme(colors.gray.900) !important;
+		color: var(--shiki-dark) !important;
+		background-color: theme(colors.gray.900) !important;
 	}
+}
+
+@font-face {
+	font-family: 'Vazirmatn-RD';
+	src: url('/fonts/Vazirmatn-RD[wght].woff2') format('woff2 supports variations'),
+		url('/fonts/Vazirmatn-RD[wght].woff2') format('woff2-variations');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
 }
 
 .glass {
