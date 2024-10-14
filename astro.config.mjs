@@ -6,7 +6,7 @@ import { remarkReadingTime } from './src/utils/readTime.ts'
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://fum-hydroinformatics.github.io/', // Write here your website url
+	site: 'https://fum-hydroinformatics.ir/', // Write here your website url
 	// base: 'website-template',
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
