@@ -9,7 +9,7 @@ const isBuild = SCRIPT.includes('astro build')
 
 let SHARP_SERVICE = passthroughImageService()
 if (isBuild) {
-	SHARP_SERVICE = ''
+	SHARP_SERVICE = null
 }
 
 // https://astro.build/config
