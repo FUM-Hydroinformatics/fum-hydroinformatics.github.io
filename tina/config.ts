@@ -63,6 +63,12 @@ export default defineConfig({
 						description: 'If this is checked the post will not be published'
 					},
 					{
+						name: 'slider',
+						label: 'Slider',
+						type: 'boolean',
+						description: 'If this is checked the post will be in slider'
+					},
+					{
 						type: 'string',
 						name: 'tags',
 						required: true,

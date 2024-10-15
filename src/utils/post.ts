@@ -8,9 +8,29 @@ export const getCategories = async () => {
 	return Array.from(categories)
 }
 
-export const getPosts = async (max?: number) => {
+export const getPosts = async (excludeCategory?: string, max?: number) => {
 	return (await getCollection('blog'))
 		.filter((post) => !post.data.draft)
+		.filter(
+			(post) =>
+				!excludeCategory || post.data.category.toLowerCase() !== excludeCategory.toLowerCase()
+		)
+		.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+		.slice(0, max)
+}
+
+export const getSliderItems = async (max?: number) => {
+	return (await getCollection('blog'))
+		.filter((post) => !post.data.draft)
+		.filter((post) => post.data.slider)
+		.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+		.slice(0, max)
+}
+
+export const getAnnoucements = async (category: string, max?: number) => {
+	return (await getCollection('blog'))
+		.filter((post) => !post.data.draft)
+		.filter((post) => post.data.category.toLowerCase() === category.toLowerCase())
 		.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 		.slice(0, max)
 }
