@@ -1,21 +1,41 @@
 ---
 import ListCategories from '@/components/ListCategories'
 import ListPosts from '@/components/ListPosts'
+import PostsSlider from '@/components/PostsSlider'
 import TitlePage from '@/components/TitlePage'
+import Timeline from '@/components/Timeline'
 import BaseLayout from '@/layouts/BaseLayout'
-import { getPosts } from '@/utils'
+import { getPosts, getAnnoucements, getSliderItems } from '@/utils'
 
-const MAX_POSTS = 5 // max number of posts to show on the home page
-const posts = await getPosts(MAX_POSTS)
+const MAX_POSTS = 3 // max number of posts to show on the home page
+const MAX_ANNOUCEMENTS = 5 // max number of posts to show on timeline
+const MAX_Slider_POSTS = 5 // max number of posts to show in slider
+const posts = await getPosts('اطلاعیه ها', MAX_POSTS)
+const annoucements = await getAnnoucements('اطلاعیه ها', MAX_ANNOUCEMENTS)
+const slider_posts = await getSliderItems(MAX_ANNOUCEMENTS)
 ---
 
 <BaseLayout title='صفحه اصلی'>
 	<TitlePage title='هیدروانفورماتیک فردوسی' />
-	<ListCategories />
+	<!-- <ListCategories /> -->
 
 	<div>
-		<h2 class='text-lg font-medium tracking-wide text-start'>مطالب اخیر</h2>
-		<ListPosts FirstBig={true} posts={posts} />
+		<div class='grid grid-cols-12 gap-4'>
+			<div
+				class='col-span-12 sm:col-span-12 md:col-span-8 lg:col-span-8 xl:col-span-8 2xl:col-span-8'
+			>
+				<div class='min-h-[300px]'><PostsSlider posts={slider_posts} /></div>
+
+				<h2 class='text-3xl font-medium tracking-wide text-start my-4'>مطالب اخیر</h2>
+				<ListPosts FirstBig={false} posts={posts} />
+			</div>
+			<div
+				class='col-span-12 sm:col-span-12 md:col-span-4 lg:col-span-4 xl:col-span-4 2xl:col-span-4'
+			>
+				<h3 class='text-2xl font-medium tracking-wide text-start mb-3'>اطلاعیه ها</h3>
+				<Timeline posts={annoucements} />
+			</div>
+		</div>
 	</div>
 </BaseLayout>
 
