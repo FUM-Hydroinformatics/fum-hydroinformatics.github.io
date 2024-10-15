@@ -4,13 +4,13 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import { remarkReadingTime } from './src/utils/readTime.ts'
 
-const SCRIPT = process.env.npm_lifecycle_script || ''
-const isBuild = SCRIPT.includes('astro build')
+// const SCRIPT = process.env.npm_lifecycle_script || ''
+// const isBuild = SCRIPT.includes('astro build')
 
-let SHARP_SERVICE = passthroughImageService()
-if (isBuild) {
-	SHARP_SERVICE = null
-}
+// let SHARP_SERVICE = passthroughImageService()
+// if (isBuild) {
+// 	SHARP_SERVICE = null
+// }
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,9 +24,9 @@ export default defineConfig({
 			wrap: true
 		}
 	},
-	image: {
-		service: SHARP_SERVICE
-	},
+	// image: {
+	// 	service: SHARP_SERVICE
+	// },
 	integrations: [
 		mdx({
 			syntaxHighlight: 'shiki',
