@@ -1,0 +1,14 @@
+---
+import { cn, sluglify } from '@/utils'
+
+const { name = 'همه دسته‌بندی‌ها' } = Astro.props
+const currentPath = Astro.url.pathname
+const unsluglifyNameCategory = sluglify(name.toLowerCase())
+---
+
+<li>
+	<a
+		href={sluglify(`/category/${unsluglifyNameCategory}/1`)}
+		class='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>{name}</a
+	>
+</li>
