@@ -3,10 +3,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
 	darkMode: 'class',
-	content: [
-		'./src/**/*.{astro,html,js,md,mdx,ts}',
-		'./node_modules/flowbite/**/*.js'
-	],
+	content: ['./src/**/*.{astro,html,js,md,mdx,ts}', './node_modules/flowbite/**/*.js'],
 	theme: {
 		extend: {
 			colors: {
